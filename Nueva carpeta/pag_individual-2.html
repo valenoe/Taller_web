@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sistema de fichas</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="shortcut icon" href="dna_science_genetics_biology_research_icon_233289.png" type="image/x-icon"> <!--agregar imagen chiquita en pestaña-->
+
+</head>
+
+<body >
+    <header>
+
+        <!--<nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark "> 
+            <div class="container-fluid">-->
+        <nav class="navbar navbar-expand-lg bg-coloryo">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="buttom">
+                    <span class="navbar-toggler-icon" data-bs-toggle="collapse"  data-bs-target="#menu"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <img src="dna_science_genetics_biology_research_icon_233289.png" width="30px" height="30px">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="#presentacion" class="nav-link">Presentación del equipo</a></li>
+                        <li class="nav-item"><a href="#alcance" class="nav-link">Alcance del proyecto</a></li>
+                        <li class="nav-item"><a href="#citas" class="nav-link">Obtener cita</a></li>
+                        <li class="nav-item"><a href="#esp_citas" class="nav-link">Datos de atención</a></li>
+                        <li class="nav-item"><a href="#tabla-citas" class="nav-link">Registro de citas</a></li>
+                        <li class="nav-item"><a href="#carrucel_especialidades" class="nav-link">Especialidades</a></li>
+                        <li class="nav-item"><a href="#tabla-especialidades" class="nav-link">Tabla especialidades</a></li>
+                        <li class="nav-item"><a href="#fichas" class="nav-link">Iniciar ficha</a></li>
+                        <li class="nav-item"><a href="#tabla-fichas" class="nav-link">Registro de fichas</a></li>
+                        <li class="nav-item"><a href="#usuarios" class="nav-link">Usuarios</a></li>
+                        <li class="nav-item"><a href="#tabla-usuarios" class="nav-link">Registro de usuarios</a></li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main">
+        
+
+        <div id="#" class="container "></div>
+        <div id="presentacion" class="container">
+        
+            <h2 class="text-center p-3"><b>Presentación del equipo</b></h2>
+            <div class="row" >
+                <div class="col-md-4 col-12 text-center h-100 d-inline-block">
+                    <div class="card p-2">
+                        <div class="card-header">
+                            <h4><b>Carrera</b></h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="cropped-logo_negro.png" alt="" class="img-fluid foto1">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 col-12 h-100 d-inline-block">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4><b>Integrantes</b></h4>
+                        </div>
+                        <div class="card-body pb-5">
+                            
+                            <ul>
+                                <li class="h5">Dante Aguirre</li>
+                                <li class="h5">Valery Chaparro</li>
+                                <li class="h5">Michelle Valdés</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="col-md-4 col-12 text-center h-100 d-inline-block">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h4><b>Presentadora de esta página</b></h4>
+                        </div>
+                        <div class="card-body pb-3">
+                            <img src="programador.png" alt="" class="foto2 img-fluid">
+                            <h4 class="pt-1">Valery Chaparro</b></h4>
+                        </div>
+                    </div>
+                    
+                    <!--<a href="https://www.flaticon.es/iconos-gratis/programador" title="programador iconos">Programador iconos creados por Freepik - Flaticon</a>-->
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="alcance" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Alcance de proyecto</b></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-11 col-12">
+
+                    <b>El objetivo principal del proyecto es organizar fichas de un centro médico, sin embargo, esto no le entrega herramientas nuevas a su personal  por lo que hemos desarrollado más secciones con las cuales el centro podrá regular los datos de los pacientes sin necesitar más herramientas que una página web.
+                    </b>  <br>          
+                    <b>Estas secciones permiten la toma de horas, ingreso de fichas y un inicio de sesión para el personal que lo requiera. La página permitirá que tanto los pacientes como los administrativos soliciten citas, no obstante, solo el personal podrá ingresar o editar una ficha médica.
+                    </b>   <br>         
+                    <b>Además expondrá las especialidades que maneja el centro y sus médicos asociados.
+                    </b>
+                </div> 
+                <div class="col-md-1 col-12">
+                    <!--<a href="https://www.flaticon.es/iconos-animados-gratis/reporte" title="reporte iconos animados">Reporte iconos animados creados por Freepik - Flaticon</a>         
+                    -->
+                    <img src="carpeta.png" alt="" class="foto2">
+                </div>
+
+
+        
+            </div>    
+        </div>
+        <div id="citas" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Obtener cita</b></h2>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <form class="row">
+                        <div class="col-6">
+                            
+                        <label for="rut" class="form-label ">Rut:</label>
+                        <input type="text" id="rut" name="rut" placeholder="inserta tu Rut aquí..." class="form-control">
+                        <label for="motivo" class="form-label pt-2">Escriba el motivo de consulta:</label>
+                            <textarea name="motivo" id="motivo"  rows="3" placeholder="Inserta tu motivo de consulta aquí..." class="form-control"></textarea>
+                            
+        
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <label for="acompanante" class="form-label">¿Cuenta con acompañante?</label>
+                                <div class="col">
+                                    <input type="radio" id="si" name="acompanante" value="si" class="form-check-input">
+                                    <label for="si" class="form-check-label">Sí</label>
+                                    <input type="radio" id="no" name="acompanante" value="no" class="form-check-input">
+                                    <label for="no" class="form-check-label">No</label>
+                                </div>
+
+                            </div>
+                            <br>
+                            <label for="numero" class="form-label">Número de contacto:</label>
+                            <input type="text" id="numero" name="numero" placeholder="inserta tu número aquí..." class="form-control">
+                            <label for="correo" class="form-label pt-2">Correo de contacto:</label>
+                            <input type="email" id="correo" name="correo" placeholder="inserta tu correo aquí..." class="form-control">
+                                        
+                                    
+                        </div>
+                        
+        
+                        <div class="col-6">
+                            <label for="especialidad" class="form-label pt-2">Elige la especialidad con la que te quieres atender</label>
+                                    <select name="especialidad" id="especialidad" class="form-select">
+                                        <option value="seleccionar">Seleccionar</option>
+                                        
+                                    </select>
+                                    <label for="medico" class="form-label pt-2">Elige el personal medico con quien te quieres atender</label>
+                                    <select name="medico" id="medico" class="form-select">
+                                        <option value="seleccionar">Seleccionar</option>
+                                        
+                                    </select>
+                                
+                        </div>
+                        <div class="col-6">
+                            <label for="fecha_cita" class="form-label pt-2">Seleccione la fecha:</label>
+                                    <input type="date" id="fecha_cita" name="fecha_cita"  class="form-control">
+                                    <label for="hora" class="form-label pt-2">Elige la hora de las que se encuentran disponibles para el día seleccionado</label>
+                                    <select name="hora" id="hora" class="form-select">
+                                        <option value="seleccionar">Seleccionar</option>
+                                        
+                                    </select>
+                        </div>
+                        <div class="col-12 text-center">
+                            
+                            <h5 class="pt-3"><b>Cuando esté conforme con <br>los campos seleccione enviar</b></h5>
+                            <input type="submit" value="Enviar" class="btn btn-dark"><br><br>
+        
+                        </div>
+                              
+                    </form>
+                </div>
+            </div>
+                    
+                
+                
+        </div>
+
+        <div id="esp_citas" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Datos de Atención</b></h2>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5><b>Antecedentes clínicos y signos vitales</b></h5>
+                </div>
+                <div class="card-body">
+                    <form class="row">
+                        <div class="col-6">
+                            
+                        <label for="id_cita" class="form-label">Id cita</label>
+                        <input type="text" id="id_cita" name="id_cita" class="form-control">             
+                                    
+                       
+                            <label for="presion" class="form-label pt-2">Presión</label>
+                            <input type="text" id="presion" name="presion" class="form-control">
+                            <label for="temperatura" class="form-label pt-2">Temperatura</label>
+                            <input type="text" id="temperatura" name="temperatura" class="form-control">
+                            <label for="peso" class="form-label pt-2">Peso</label>
+                            <input type="text" id="peso" name="peso" class="form-control">
+                                
+                        </div>
+                        <div class="col-6">
+                            <label for="sat_o2" class="form-label">Sat O2</label>
+                            <input type="text" id="sat_o2" name="sat_o2" class="form-control">
+                            <label for="pulso" class="form-label pt-2">Pulso</label>
+                            <input type="text" id="pulso" name="pulso" class="form-control">
+                            <label class="from-label pt-2" for="alergias">Alergias</label>
+                            <textarea class="form-control" name="alergias" rows="3" id="alergias"></textarea>  
+                                                    
+                        </div>
+                        <div class="col-12 text-center pt-3">
+                            <input type="submit" value="Enviar" class="btn btn-dark">
+        
+                        </div>
+                              
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5><b>Datos de Atención</b></h5>
+                </div>
+                <div class="card-body">
+                    <form class="row">
+                        <div class="col-6">
+                            
+                        <label for="id_cita" class="form-label">Id cita</label>
+                        <input type="text" id="id_cita" name="id_cita" class="form-control">             
+                            
+                        
+                        </div>  
+                        <div class="col-6">
+                            <label for="p_ges" class="form-label">Patología GES</label>
+                        <input type="text" id="p_ges" name="p_ges" class="form-control">             
+                         
+                        </div>
+                        <div class="col-12">
+                            <label for="diag_p" class="form-label pt-2" >Diagnóstico Principal</label>
+                            <input type="text" id="diag_p" class="form-control">
+                            <label for="diag_c" class="form-label pt-2">Diagnóstico complementario</label>
+                            <textarea id="diag_c" rows="2" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6 pt-2">
+                            <label for="tratamiento" class="form-label">Tratamiento</label>
+                            <textarea id="tratamiento" rows="3" class="form-control" placeholder="Use ; como separardor"></textarea>
+
+                        </div>
+                        <div class="col-6 pt-2">
+                            <label for="indicacion" class="form-label">Indicaciones</label>
+                            <textarea id="indicacion" rows="3" class="form-control" placeholder="Use ; como separardor"></textarea>
+
+                        </div>
+                        <div class="col-12 text-center pt-3">
+                             <input type="submit" value="Enviar" class="btn btn-dark">
+        
+                        </div>
+                              
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+    
+        <div id="tabla-citas" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Registro de  cita</b></h2>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Citas registradas</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Rut</th>
+                            <th>Motivo</th>
+                            <th>Especialidad</th>
+                            <th>Personal_salud</th>
+                            <th>Fecha_cita</th>
+                            <th>Hora</th>
+                            <th>Acompañante</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Antecedentes clínicos y signos vitales</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>id_cita</th>
+                            <th>Presión</th>
+                            <th>Temperatura</th>
+                            <th>Alergias</th>
+                            <th>Sat O2</th>
+                            <th>Pulso</th>
+                            <th>Peso</th>
+            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Datos de atención</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>id_cita</th>
+                           
+                            <th>Diagnóstico principal</th>
+                            <th>Diagnóstico complementario</th>
+                            <th>Tratamiento (;)</th>
+                            <th>Indicación (;)</th>
+                            <th>Patología GES</th>
+                            
+            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div id="carrucel_especialidades" class="container p3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Especialidades</b></h2>
+                    <h4 class="text-center">Con las que se puede pedir cita (ejemplos)</h4>
+
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div id="carouselExampleCaptions" class="carousel slide">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4><b>Obstetricia</b></h4>
+                                </div>
+                                <div class="card-body">
+                                    <img class="d-block w-100 img-fluid" src="9892013_4299812.jpg" alt="" width="200" height="300">
+                                </div>
+                            </div>
+                            
+                          </div>
+                          <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4><b>Dentista</b></h4>
+                                </div>
+                                <div class="card-body">
+                                    <img class="d-block w-100 img-fluid" src="mujer-dentista-examinando-dientes-paciente-sobre-fondo-blanco_1308-92207.avif" alt="" width="200" height="300">
+                                </div>
+                            </div>
+                           
+                          </div>
+                          <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4><b>Medicina general</b></h4>
+                                </div>
+                                <div class="card-body">
+                                    <img class="d-block w-100 img-fluid" src="foto_0000000120220610171350.png" alt="" width="200" height="300">
+                                </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tabla-especialidades" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Tabla Especialidades</b></h2>
+                </div>
+            </div>
+            
+            
+            <div class="row p-3">
+                <div class="col-3">
+                    <img  src="doctor.png" alt="" class="foto2 ">
+                </div>
+                <div class="col-3">
+                    <img   src="doctor(1).png" alt="" class="foto2">
+                </div>
+                <div class="col-6">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover text-center">
+                            <caption>Especialidades</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Especialidad</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>...</td>
+                                    <td>...</td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                </div>
+                
+
+                
+            </div>
+           
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Medicos por especialidad</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Especialidad</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            
+                           
+                        </tr>
+                    </tbody>
+                </table>
+
+            
+            </div>
+
+        </div>
+        <div id="fichas" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Iniciar ficha</b></h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <form class="row">
+                        <div class="col">
+                            <label for="nombre2" class="form-label">Nombre(s)</label>
+                            <input type="text" id="nombre2" name="nombre2" class="form-control">
+                            <label for="rut2" class="form-label pt-2">Rut</label>
+                            <input type="text" id="rut2" name="rut2" class="form-control">
+                            <label for="prev_sal" class="form-label pt-2">Previsión de Salud</label>
+                            <input type="text" id="prev_sal" name="prev_sal" class="form-control">
+                            <label for="domicilio" class="form-label  pt-2">Domicilio</label>
+                            <input type="text" id="domicilio" name="domicilio" class="form-control">
+                            
+                        </div>
+
+                        <div class="col">
+                            <label for="apellido2" class="form-label">Apellido(s)</label>
+                            <input type="text" id="apellido2" name="apellido2" class="form-control">
+                            <label for="fecha_nac" class="form-label pt-2">Fecha de nacimiento</label>
+                            <input type="date" id="fecha_nac" name="fecha_nac" class="form-control">
+                            <label for="sexo" class="form-label pt-2">Sexo</label>
+                                <div class="col-12">
+                                    <input type="radio" id="fem" name="sexo" value="fem" class="form-check-input">
+                                    <label for="fem" class="form-check-label">Femenino</label>
+                                    
+                                </div>
+                                <div class="col-12">
+                                    <input type="radio" id="mas" name="sexo" value="mas" class="form-check-input">
+                                    <label for="mas" class="form-check-label">Masculino</label>
+                                </div>
+                            
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div id="tabla-fichas" class="container">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-10">
+                    <h2 class="text-center p-3"><b>Registro de ficha</b></h2>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Datos personales de pacientes - > fichas</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Rut</th>
+                            <th>Nombre(s)</th>
+                            <th>Apellido(s)</th>
+                            <th>Fecha nacimiento</th>
+                            <th>Sexo</th>
+                            <th>Previsión de salud</th>
+                            <th>Domicilio</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+        <div id="usuarios" class="container p-3">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Usuarios</b></h2>
+                </div>
+            </div>
+            
+              
+            <form class="row">
+                <div class="mb-3">
+                    <label for="correo1" class="visually-hidden">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo1" placeholder="nombre@ejemplo.com">
+                </div>
+                
+                <div class="col-6">
+                  <label for="inputPassword2" class="visually-hidden">Password</label>
+                  <input type="password" class="form-control" id="inputPassword2" placeholder="contraseña">
+                </div>
+                <div class="col-6 text-center">
+                  <button type="submit" class="btn btn-dark mb-3">Confirmar identidad</button>
+                </div>
+              </form>
+
+        </div>
+        <div id="tabla-usuarios" class="container">
+            <div class="row">
+                <div class="col-2">
+                    <a href="#" class="btn btn-sm" id="btn_arriba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                          </svg>
+                    </a>
+            
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center p-3"><b>Registro de usuarios</b></h2>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center">
+                    <caption>Datos de usuarios</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Rut</th>
+                            <th>Nombre(s)</th>
+                            <th>Apellido(s)</th>
+                            
+                            <th>Permisos</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+    <footer>
+        <div class="container p-6">
+            
+            <div>&#169 Taller de desarrollo web 2023-I</div>
+            <a href="#" class="nav-link">Volver arriba</a>
+        </div>
+    </footer>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
