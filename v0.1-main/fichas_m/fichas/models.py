@@ -65,7 +65,6 @@ class Cita(models.Model):
     
     
 class DatosAtencion(models.Model):
-    title = models.CharField(max_length=100)
     id_cita = models.ForeignKey(Cita, on_delete=models.CASCADE)
     paologia_ges = models.CharField(max_length=100)
     diagnostico_principal  =models.CharField(max_length=100)
@@ -77,11 +76,13 @@ class DatosAtencion(models.Model):
     pulso = models.CharField(max_length=100)
     alergias = models.CharField(max_length=100)
     def __str__(self):
-        return self.title
+        return self.diagnostico_principal
     
 class Tratamiento(models.Model):
     medicamento = models.CharField(max_length=100)
     indicaciones = models.TextField()
+    def __str__(self):
+        return self.medicamento
     
     
 
