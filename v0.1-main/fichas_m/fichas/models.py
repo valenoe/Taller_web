@@ -63,11 +63,13 @@ class Cita(models.Model):
     def __str__(self):
         return self.rut_paciente
     
-
-class Antecedentes(models.Model):
     
+class DatosAtencion(models.Model):
     title = models.CharField(max_length=100)
     id_cita = models.ForeignKey(Cita, on_delete=models.CASCADE)
+    paologia_ges = models.CharField(max_length=100)
+    diagnostico_principal  =models.CharField(max_length=100)
+    disgnotico_complementario = models.TextField()
     presion = models.CharField(max_length=100)
     temperatura = models.CharField(max_length=100)
     peso = models.CharField(max_length=100)
@@ -77,13 +79,9 @@ class Antecedentes(models.Model):
     def __str__(self):
         return self.title
     
-class DatosAtencion(models.Model):
-    title = models.CharField(max_length=100)
-    id_cita = models.ForeignKey(Cita, on_delete=models.CASCADE)
-    paologia_ges = models.CharField(max_length=100)
-    diagnostico_principal  =models.CharField(max_length=100)
-    disgnotico_complementario = models.TextField()
-    def __str__(self):
-        return self.title
+class Tratamiento(models.Model):
+    medicamento = models.CharField(max_length=100)
+    indicaciones = models.TextField()
+    
     
 
