@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Usuario, Especialidad, Rol, PersonalSalud, Horas, Ficha, Cita, DatosAtencion, Antecedentes
+from .models import Usuario, Especialidad, Rol, PersonalSalud, Horas, Ficha, Cita, DatosAtencion, Tratamiento
 admin.site.register(Usuario)
 admin.site.register(Especialidad)
 admin.site.register(Rol)

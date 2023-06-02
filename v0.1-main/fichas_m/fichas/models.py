@@ -33,7 +33,8 @@ class PersonalSalud(models.Model):
     
 class Horas(models.Model):
 
-    fecha = models.DateTimeField()
+    fecha = models.DateField(null=True)
+    hora = models.TimeField(null=True)
     id_medico = models.ForeignKey(PersonalSalud, on_delete=models.CASCADE)
     ocupada = models.BooleanField()
     def __str__(self):
@@ -69,12 +70,12 @@ class DatosAtencion(models.Model):
     paologia_ges = models.CharField(max_length=100)
     diagnostico_principal  =models.CharField(max_length=100)
     disgnotico_complementario = models.TextField()
-    presion = models.CharField(max_length=100)
-    temperatura = models.CharField(max_length=100)
-    peso = models.CharField(max_length=100)
-    satO2 = models.CharField(max_length=100)
-    pulso = models.CharField(max_length=100)
-    alergias = models.CharField(max_length=100)
+    presion = models.CharField(max_length=100, default='')
+    temperatura = models.CharField(max_length=100,default='')
+    peso = models.CharField(max_length=100,default='')
+    satO2 = models.CharField(max_length=100,default='')
+    pulso = models.CharField(max_length=100,default='')
+    alergias = models.CharField(max_length=100,default='')
     def __str__(self):
         return self.diagnostico_principal
     
