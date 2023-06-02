@@ -55,7 +55,6 @@ class Ficha(models.Model):
 class Cita(models.Model):
     rut_paciente = models.CharField(max_length=13)
     id_horario = models.ForeignKey(Horas, on_delete=models.CASCADE)
-    especialidad_escogida = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
     acompannante = models.CharField(max_length=100)
     id_medico = models.ForeignKey(PersonalSalud, on_delete=models.CASCADE)
     telefono = models.CharField(max_length=100)
