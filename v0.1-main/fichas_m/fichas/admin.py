@@ -8,5 +8,5 @@ admin.site.register(Horas)
 admin.site.register(Ficha)
 admin.site.register(Cita)
 admin.site.register(DatosAtencion)
-admin.site.register(Antecedentes)
+admin.site.register(Tratamiento)
 
