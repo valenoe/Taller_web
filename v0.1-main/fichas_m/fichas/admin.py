@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Usuario, Especialidad, Rol, PersonalSalud, Horas, Ficha, Cita, DatosAtencion, Tratamiento
+from .models import *
+
+admin.site.site_header = 'Administración Fichas Medicas'
+admin.site.site_title = 'Administración Fichas Medicas'
+admin.site.index_title = 'Bienvenido'
+
 admin.site.register(Usuario)
 admin.site.register(Especialidad)
 admin.site.register(Rol)

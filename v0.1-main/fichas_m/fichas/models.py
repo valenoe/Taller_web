@@ -14,14 +14,18 @@ class Rol(models.Model):
     
 class Usuario(models.Model):
 
-    rut = models.CharField(max_length=13)
-    nombre = models.CharField(max_length=50) 
-    apellido = models.CharField(max_length=50)
-    correo = models.EmailField(max_length=50)
-    rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
+    ROL = (('Administrador', 'Administrador'),
+    ('Funcionario', 'Funcionario'),
+    ('Usuario', 'Usuario'),
+    )
+    nombre = models.CharField(max_length=50, null=True) 
+    apellido = models.CharField(max_length=50, null=True)
+    rut = models.CharField(max_length=13, null=True)
+    correo = models.EmailField(max_length=50, null=True)
+    rol = models.CharField(max_length=200, null=True, choices=ROL)
 
     def __str__(self):
-        return self.rut
+        return self.nombre
     
 class PersonalSalud(models.Model):
 
