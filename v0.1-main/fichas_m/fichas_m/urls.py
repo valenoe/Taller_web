@@ -16,11 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from fichas.views import post_list
+from fichas.views import *
 
-urlpatterns = [
+
+
+urlpatterns  = [
     path('admin/', admin.site.urls),
-    path('posts/', post_list, name='post_list'),
-    path('accounts/', include("django.contrib.auth.urls")),
-    path('', post_list, name='post_list'),
+    path('', home, name='index'),
+    path('usuario/', usuarios, name='usuario'),
+    path('crear_usuario/', crearUsuario, name='crear_usuario'), 
+    path('modificar_usuario/<str:pk>', modificarUsuario, name='modificar_usuario'),
+    path('eliminar_usuario/<str:pk>', eliminarUsuario, name='eliminar_usuario'), 
+ 
 ]
