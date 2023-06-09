@@ -27,5 +27,6 @@ urlpatterns  = [
     path('crear_usuario/', crearUsuario, name='crear_usuario'), 
     path('modificar_usuario/<str:pk>', modificarUsuario, name='modificar_usuario'),
     path('eliminar_usuario/<str:pk>', eliminarUsuario, name='eliminar_usuario'), 
+    path('accounts/', include("django.contrib.auth.urls")),
  
 ]

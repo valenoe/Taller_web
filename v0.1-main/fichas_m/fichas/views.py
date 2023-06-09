@@ -43,3 +43,5 @@ def eliminarUsuario(request, pk):
     context = {'usuario': usuario}
     return render(request, 'fichas/eliminar.html', context)
 
+def login(request):
+    return render(request, 'registration/login.html')
