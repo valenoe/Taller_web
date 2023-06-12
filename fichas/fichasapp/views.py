@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import UsuarioForm
-from django.contrib import messages
 
 def home(request):
     return render(request, 'fichas/index.html')
@@ -16,7 +15,6 @@ def crearUsuario(request):
         form = UsuarioForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "El usuario fue guardado exitosamente")
             return redirect('/usuario')
 
     context = {'form': form}
@@ -29,7 +27,6 @@ def modificarUsuario(request, pk):
         form = UsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-            messages.success(request, "El usuario fue modificado exitosamente")
             return redirect('/usuario')
     context = {'form': form}
     return render(request, 'fichas/user_form.html', context)
@@ -39,6 +36,5 @@ def eliminarUsuario(request, pk):
     if request.method == "POST":
         usuario.delete()
         return redirect('/usuario')
-    messages.success(request, "El usuario fue eliminado exitosamente")
     context = {'usuario': usuario}
     return render(request, 'fichas/eliminar.html', context)
