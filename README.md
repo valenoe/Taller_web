@@ -1,2 +1,2 @@
 # Taller_web
-hola xd 
+fichas es la nueva carpeta que contiene el proyecto
