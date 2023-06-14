@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="sylesheet" type="text/css" href="{% static '/css/main.css' %}">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+
+</head>
+
+<body style="background-color: #abe4e4">
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+{% bootstrap_javascript %}
+</body>
+
+</html>
+
+

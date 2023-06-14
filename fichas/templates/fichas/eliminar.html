@@ -3,10 +3,20 @@
 {% load static %}
 
 {% block content %}
-<p>Está seguro/a que quiere eliminar "{{usuario.nombre}} {{usuario.apellido}}"</p>
-<form action="{% url 'eliminar_usuario' usuario.id %}" method="POST">
-    {% csrf_token %}
-    <a href="{% url 'usuario' %}">Cancelar</a>
-    <input type="submit" name="confirm">
-</form>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h5>Confirmar eliminación</h5>
+        </div>
+        <div class="card-body">
+            <p>Está seguro/a que quiere eliminar "{{usuario.nombre}} {{usuario.apellido}}"</p>
+            <form action="{% url 'eliminar_usuario' usuario.id %}" method="POST">
+            {% csrf_token %}
+            <a href="{% url 'usuario' %}">Cancelar</a>
+            <input type="submit" name="confirm">
+            </form>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from .forms import UsuarioForm
 
+
 def home(request):
     return render(request, 'fichas/index.html')
 
