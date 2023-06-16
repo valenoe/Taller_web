@@ -1,48 +1,6 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-<div class="container container-fluid" style="background-color: #ddffff">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
-                style="background-color: #52adb9">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="{% url 'usuario' %}" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span>
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    {% if user.is_authenticated %}
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                        id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-
-                        <span class="d-none d-sm-inline mx-1">{{user.get_full_name}}</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
-                    </ul>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="d-flex align-items-center text-white text-decoration-none"
-                        id="dropdownUser2">Iniciar sesión</a>
-                    {%endif%}
-                </div>
-            </div>
-        </div>
-        <div class="col py-3">
-            <h1>Bienvenido a Centro Médico</h1>
-
-        </div>
-
-    </div>
-</div>
-
-<nav id="sidebar" class=""></nav>
 
 {% endblock %}

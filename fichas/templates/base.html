@@ -1,21 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="sylesheet" type="text/css" href="{% static '/css/main.css' %}">
+  <title>{% block title %}Fichas Medicas{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
   {% load bootstrap5 %}
   {% bootstrap_css %}
 
 </head>
 
-<body style="background-color: #abe4e4">
+<body>
 
-    {% block content %}
-
-    {% endblock content %}
-
+   <div class="container-fluid">
+    <div class="row d-flex">
+      <!-- Sidebar -->
+      <div class="col-md-3 sidebar">
+        <h4 class="d-flex align-items-center">
+          <img src="{% static 'images/logo.png' %}" alt="404" class="me-2" style="max-height: 80px;">
+          Fichas Medicas
+        </h4>
+        <ul>
+          <li class="active"><a href="{% url 'menu' %}">Menú</a></li>
+          <li class="active"><a href="{% url 'usuario' %}">Usuarios</a></li>
+          <li class="active"><a href="{% url 'personalsalud' %}">Personal de salud</a></li>
+          <li class="active"><a href="{% url 'especialidad' %}">Especialidad</a></li>
+        </ul>
+      </div>
+      <!-- Main Content -->
+      <div class="col-md-9 p-2">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
 
 {% bootstrap_javascript %}
 </body>
