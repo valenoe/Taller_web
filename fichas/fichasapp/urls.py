@@ -18,11 +18,11 @@ urlpatterns= [
     path('menu/', views.home, name='menu'),
     path('modificar_personal/<str:pk>', views.edit_personalSalud, name='modificar_personal'),
     path('eliminar_personal/<str:pk>', views.delete_personalSalud, name='eliminar_personal'),
-    path('mostrar_personal/', views.view_personalSalud, name='mostrar_personal'),
+    path('mostrar_personal/<str:pk>', views.view_personalSalud, name='mostrar_personal'),
     path('especialidad/', views.especialidad, name='especialidad'),
     path('crear_especialidad/', views.create_especialidad, name='crear_especialidad'),
     path('modificar_especialidad/<str:pk>/', views.edit_especialidad, name='modificar_especialidad'),
     path('eliminar_especialidad/<str:pk>/', views.delete_especialidad, name='eliminar_especialidad'),
-    path('mostrar_especialidad', views.view_especialidad, name='mostrar_especialidad'),
+    path('mostrar_especialidad/<str:pk>', views.view_especialidad, name='mostrar_especialidad'),
 
 ]
