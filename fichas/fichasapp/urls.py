@@ -4,7 +4,7 @@ from django.contrib import admin
 
 app_name = 'fichasapp'
 
-urlpatterns= [
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("django.contrib.auth.urls")),
     path('', views.home, name='index'),
@@ -29,6 +29,8 @@ urlpatterns= [
     path('modificar_ficha/<str:pk>', views.edit_ficha, name='modificar_ficha'),
     path('eliminar_ficha/<str:pk>', views.delete_ficha, name='eliminar_ficha'),
     path('mostrar_ficha/<str:pk>', views.view_ficha, name='mostrar_ficha'),
+    path('horas/', views.horas, name='horas'),
+    path('crear_horas/', views.create_horas, name='crear_horas'),
 
 
 ]

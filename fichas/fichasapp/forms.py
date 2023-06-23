@@ -68,3 +68,19 @@ class FichaForm(forms.ModelForm):
             'domicilio': forms.TextInput(attrs={'class': 'form-control'}),
             'sexo': forms.Select(attrs={'class': 'form-select'}),
         }
+class HorasForm(forms.ModelForm):
+    class Meta:
+        model = Horas
+        fields = ('fecha', 'hora', 'id_medico', 'ocupada',)
+        labels = {
+            'fecha':'Fecha',
+            'hora': 'Hora',
+            'id_medico': 'Id_medico',
+            'ocupada': 'ocupada',
+        }
+        widgets = {
+            'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'hora': forms.TimeInput(attrs={'class':'timepicker'}),
+            'id_medico': forms.Select(attrs={'class': 'form-select'}),
+            'ocupada': forms.CheckboxInput(attrs={'class':'custom-checkbox'}),
+        }

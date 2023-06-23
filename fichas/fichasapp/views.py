@@ -193,3 +193,21 @@ def edit_ficha(request, pk):
 
 def login(request):
     return render(request, '/login.html')
+
+def horas(request):
+    horas = Horas.objects.all()
+    context = {
+        'horas': horas,
+    }
+    return render(request, 'horas/horas.html', context)
+
+def create_horas(request):
+    form = HorasForm()
+    if request.method == 'POST':
+        form = HorasForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/horas')
+
+    context = {'form': form}
+    return render(request, 'horas/horas_form.html', context)

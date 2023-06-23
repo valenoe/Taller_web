@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+        <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Fichas Médicas</h4>
+                  <p class="card-description">
+                    Lista de Pacientes
+                  </p>
+                  <div class="table-responsive">
+                    <a name="" id="" class="btn btn-primary" href="{% url 'crear_horas' %}" role="button">Ingresar Hora</a>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Fecha</th>
+                          <th>Hora</th>
+                          <th>Personal de Salud</th>
+                          <th>Ocupada</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for p in horas %}
+                        <tr>
+                          <td>{{ p.fecha }}</td>
+                          <td>{{ p.hora }}</td>
+                          <td>{{ p.id_medico }}</td>
+                          <td>{{ p.ocupada }}</td>
+                          <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <!--<a name="" id="" class="btn btn-primary" href="{% url 'modificar_ficha' ficha.id %}" role="button">Modificar</a>
+                            <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_ficha' ficha.id %}" role="button">Ver</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_ficha' ficha.id %}" role="button">Eliminar</a>-->
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+              </div>
+            </div>
+{% endblock content %}

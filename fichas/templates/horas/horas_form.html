@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Creación/Edición de Horas de personal de salud</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="btn-group mt-2">
+      <input type="submit" class="btn btn-primary" name="Submit" value="Guardar">
+      <a href="{% url 'horas' %}" class="btn btn-secondary">Regresar</a>
+  </div>
+  </form>
+</div>
+{% endblock %}
