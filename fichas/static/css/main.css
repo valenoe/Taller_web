@@ -1,9 +1,10 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:  #fae6fe ;
 }
 
 .sidebar {
-  background-color: #343a40;
+  background-color:  #4dd0e1 ;
   color: #f8f9fa;
   height: 100vh;
 }
@@ -19,7 +20,7 @@ body {
 }
 
 .sidebar ul li {
-  margin-bottom: 1px;
+  margin-bottom: 10px;
 }
 
 .sidebar ul li a {
@@ -31,11 +32,12 @@ body {
 }
 
 .sidebar ul li a:hover {
-  background-color: #007bff;
+  background-color:  #0097a7 ;
   color: #f8f9fa;
 }
 
 .active a {
-  background-color: #007bff;
+  background-color: #9575cd;
   color: #f8f9fa;
+  border-radius: 5px;
 }
