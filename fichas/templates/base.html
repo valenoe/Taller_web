@@ -8,48 +8,25 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 </head>
+
 <body>
-  <div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/"
-                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <h4 class="d-flex align-items-center">
-                      <img src="{% static 'images/logo.png' %}" alt="404" class="me-2" style="max-height: 80px;">
-                      <span class="fs-5 d-none d-sm-inline">Fichas Médicas</span>
-                    </h4>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                    id="menu">
-                    <li class="nav-item">
-                      <a href="{% url 'menu' %}" class="nav-link align-middle px-0">
-                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Menú</span>
-                      </a>
-                  </li>
-                    <li class="nav-item">
-                        <a href="{% url 'usuarios' %}" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{% url 'fichas' %}" class="nav-link align-middle px-0">
-                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Fichas</span>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{% url 'personalsalud' %}" class="nav-link align-middle px-0">
-                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Personal de salud</span>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{% url 'especialidad' %}" class="nav-link align-middle px-0">
-                          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">especialidad</span>
-                      </a>
-                  </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
+
+   <div class="container-fluid">
+    <div class="row d-flex">
+      <!-- Sidebar -->
+      <div class="col-md-2 sidebar">
+        <h4 class="d-flex align-items-center">
+          <img src="{% static 'images/logo.png' %}" alt="404" class="me-2" style="max-height: 80px;">
+          Fichas Medicas
+        </h4>
+        <ul>
+          <li class="active"><a href="{% url 'menu' %}">Menú</a></li>
+          <li class="active"><a href="{% url 'usuarios' %}">Usuarios</a></li>
+          <li class="active"><a href="{% url 'fichas' %}">Fichas</a></li>
+          <li class="active"><a href="{% url 'personalsalud' %}">Personal de salud</a></li>
+          <li class="active"><a href="{% url 'especialidad' %}">Especialidad</a></li>
+        </ul>
+		<div class="dropdown pb-4">
                     {% if user.is_authenticated %}
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,29 +41,20 @@
                         id="dropdownUser1">Iniciar sesión</a>
                     {%endif%}
                 </div>
-            </div>
-        </div>
-        <div class="col py-3">
-            <div class="row">
+      </div>
+      <!-- Main Content -->
+      <div class="col-md-9 p-2">
                 {% if user.is_authenticated %}
-                <div class="col-md-12">
-                  <div class="col-md-12 p-2">
+
                     {% block content %}
                     {% endblock content %}
-                  </div>
-                </div>
                 {% endif %}
-            </div>
-        </div>
+      </div>
     </div>
-</div>
-      <!-- Main Content -->
+  </div>
 
-  {% bootstrap_javascript %}
-
+{% bootstrap_javascript %}
 </body>
-
-
 
 </html>
 
