@@ -38,6 +38,11 @@ urlpatterns = [
     path('modificar_especialidad/<str:pk>/', views.edit_especialidad, name='modificar_especialidad'),
     path('eliminar_especialidad/<str:pk>/', views.delete_especialidad, name='eliminar_especialidad'),
     path('mostrar_especialidad/<str:pk>', views.view_especialidad, name='mostrar_especialidad'),
+    path('fichas/', views.fichas, name='fichas'),
+    path('crear_ficha/', views.create_ficha, name='crear_ficha'),
+    path('modificar_ficha/<str:pk>', views.edit_ficha, name='modificar_ficha'),
+    path('eliminar_ficha/<str:pk>', views.delete_ficha, name='eliminar_ficha'),
+    path('mostrar_ficha/<str:pk>', views.view_ficha, name='mostrar_ficha'),
 
 
 

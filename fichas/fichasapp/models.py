@@ -45,14 +45,27 @@ class Horas(models.Model):
         return self.fecha
     
 class Ficha(models.Model):
-
+    PREVISION = (('Fonasa', 'Fonasa'),
+    ('Isapre', 'Isapre'),
+    )
+    SEXO = (('Masculino', 'Masculino'),
+    ('Femenino', 'Femenino'),
+    ('Intersexual', 'Intersexual'),
+    )
+    ISAPRE = (('Colmena', 'Colmena'),
+    ('CruzBlanca', 'CruzBlanca'),
+    ('Consalud', 'Consalud'),
+    ('MasVda', 'MasVda'),
+    ('BanMedica', 'BanMedica'),
+    )
     rut = models.CharField(max_length=13)
-    nombre = models.CharField(max_length=50) 
+    nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     fecha_nacimiento = models.DateTimeField()
-    previcion_salud = models.CharField(max_length=13)
+    prevision_salud = models.CharField(max_length=200, null=True, choices=PREVISION)
+    tipo_isapre = models.CharField(max_length=200, null=True, choices=ISAPRE)
     domicilio = models.CharField(max_length=100)
-    sexo= models.CharField(max_length=50)
+    sexo = models.CharField(max_length=200, null=True, choices=SEXO)
 
     def __str__(self):
         return self.nombre

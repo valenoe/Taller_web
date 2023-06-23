@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
-from fichasapp.forms import UsuarioForm, PersonalSaludForm, EspecialidadForm
+from fichasapp.forms import *
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
@@ -97,9 +98,10 @@ def view_personalSalud(request, pk):
 
 def especialidad(request):
     especialidad = Especialidad.objects.all()
-    return render(request, 'fichas/especialidad.html', {'especialidad': especialidad})
+    return render(request, 'especialidad/especialidad.html', {'especialidad': especialidad})
 
 def create_especialidad(request):
+    form = EspecialidadForm()
     if request.method == 'POST':
         form = EspecialidadForm(request.POST)
         if form.is_valid():
@@ -107,7 +109,7 @@ def create_especialidad(request):
             return redirect('/especialidad')
 
     context = {'form': form}
-    return render(request, 'fichas/especialidad_form.html', context)
+    return render(request, 'especialidad/especialidad_form.html', context)
 
 
 def edit_especialidad(request, pk):
@@ -119,7 +121,7 @@ def edit_especialidad(request, pk):
             form.save()
             return redirect('/especialidad')
     context = {'form': form}
-    return render(request, 'fichas/especialidad_form.html', context)
+    return render(request, 'especialidad/especialidad_form.html', context)
 
 
 def delete_especialidad(request, pk):
@@ -128,12 +130,66 @@ def delete_especialidad(request, pk):
         especialidad.delete()
         return redirect('/especialidad')
     context = {'especialidad': especialidad}
-    return render(request, 'fichas/eliminar_especialidad.html', context)
+    return render(request, 'especialidad/eliminar_especialidad.html', context)
 
 def view_especialidad(request, pk):
     especialidad = Especialidad.objects.get(id=pk)
     context = {
         'especialidad': especialidad
     }
-    return render(request, 'fichas/mostrar_especialidad.html', context)
+    return render(request, 'especialidad/mostrar_especialidad.html', context)
 
+def fichas(request):
+    fichas = Ficha.objects.all()
+    context = {
+        'fichas': fichas,
+    }
+    return render(request, 'fichas/fichas.html', context)
+
+
+def create_ficha(request):
+    if request.method == 'POST':
+        form = FichaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('fichas')
+    else:
+        form = FichaForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'fichas/ficha_form.html', context)
+
+
+def delete_ficha(request, pk):
+    ficha = get_object_or_404(Ficha, id=pk)
+    if request.method == 'POST':
+        ficha.delete()
+        return redirect('fichas')
+
+    context = {
+        'ficha': ficha,
+    }
+    return render(request, 'fichas/delete_ficha.html', context)
+
+
+def view_ficha(request, pk):
+    ficha = Ficha.objects.get(id=pk)
+    context = {'ficha': ficha}
+    return render(request, 'fichas/view_ficha.html', context)
+
+
+def edit_ficha(request, pk):
+    ficha = Ficha.objects.get(id=pk)
+    form = FichaForm(instance=ficha)
+    if request.method == 'POST':
+        form = FichaForm(request.POST, instance=ficha)
+        if form.is_valid():
+            form.save()
+            return redirect('/fichas')
+    context = {'form': form}
+    return render(request, 'fichas/ficha_form.html', context)
+
+def login(request):
+    return render(request, '/login.html')

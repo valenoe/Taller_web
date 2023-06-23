@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-8 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Especialidades</h4>
+            <p class="card-description">
+              Lista de Especialidades
+            </p>
+            <div class="table-responsive">
+              <a  class="btn btn-primary" href="{% url 'crear_especialidad' %}" role="button">Crear Especialidad</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Especialidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for p in especialidad %}
+                  <tr>
+
+                    <td>{{p.name}}</td>
+
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                     <a name="" id="" class="btn btn-primary" href="{% url 'modificar_especialidad' pk=p.id %}"
+                        role="button">Modificar</a>
+                      <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_especialidad' p.id %}" role="button">Ver</a>
+
+                      <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_especialidad' pk=p.id %}"
+                        role="button">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
