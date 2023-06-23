@@ -8,49 +8,53 @@ def home(request):
 
 def usuarios(request):
     usuarios = Usuario.objects.all()
-    return render(request, 'fichas/usuario.html', {'usuarios': usuarios})
+    return render(request, 'usuarios/usuarios.html', {'usuarios': usuarios})
 
-def crearUsuario(request):
+
+
+def create_usuario(request):
     form = UsuarioForm()
     if request.method == 'POST':
         form = UsuarioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/usuario')
+            return redirect('/usuarios')
 
     context = {'form': form}
-    return render(request, 'fichas/user_form.html', context)
+    return render(request, 'usuarios/user_form.html', context)
 
-def modificarUsuario(request, pk):
+
+def edit_usuario(request, pk):
     usuario = Usuario.objects.get(id=pk)
     form = UsuarioForm(instance=usuario)
     if request.method == 'POST':
         form = UsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-            return redirect('/usuario')
+            return redirect('/usuarios')
     context = {'form': form}
-    return render(request, 'fichas/user_form.html', context)
+    return render(request, 'usuarios/user_form.html', context)
 
 
-def eliminarUsuario(request, pk):
+def delete_usuario(request, pk):
     usuario = Usuario.objects.get(id=pk)
     if request.method == "POST":
         usuario.delete()
-        return redirect('/usuario')
+        return redirect('/usuarios')
     context = {'usuario': usuario}
-    return render(request, 'fichas/eliminar.html', context)
-def mostrar_usuario(request, pk):
+    return render(request, 'usuarios/delete_usuario.html', context)
+
+
+def view_usuario(request, pk):
     usuario = Usuario.objects.get(id=pk)
     context = {'usuario': usuario}
-    return render(request, 'fichas/mostrar_usuario.html', context)
-
+    return render(request, 'usuarios/view_usuario.html', context)
 
 def personalSalud(request):
-    personalsalud = PersonalSalud.objects.all()
-    return render(request, 'fichas/psalud.html', {'personalsalud': personalsalud})
+    personal = PersonalSalud.objects.all()
+    return render(request, 'personalSalud/psalud.html', {'personal': personal})
 
-def crearPersonal(request):
+def create_personalSalud(request):
     form = PersonalSaludForm()
     if request.method == 'POST':
         form = PersonalSaludForm(request.POST)
@@ -59,10 +63,10 @@ def crearPersonal(request):
             return redirect('/personalsalud')
 
     context = {'form': form}
-    return render(request, 'fichas/personal_form.html', context)
+    return render(request, 'personalSalud/personal_form.html', context)
 
-def modificarPersonal(request, pk):
-    personal = PersonalSaludForm.objects.get(id=pk)
+def edit_personalSalud(request, pk):
+    personal = PersonalSalud.objects.get(id=pk)
     form = UsuarioForm(instance=personal)
     if request.method == 'POST':
         form = PersonalSaludForm(request.POST, instance=personal)
@@ -70,20 +74,24 @@ def modificarPersonal(request, pk):
             form.save()
             return redirect('/personalsalud')
     context = {'form': form}
-    return render(request, 'fichas/personal_form.html', context)
+    return render(request, 'personalSalud/personal_form.html', context)
 
 
-def eliminarPersonal(request, pk):
-    personal = PersonalSaludForm.objects.get(id=pk)
+def delete_personalSalud(request, pk):
+    personal = PersonalSalud.objects.get(id=pk)
     if request.method == "POST":
         personal.delete()
         return redirect('/personalsalud')
     context = {'personal': personal}
-    return render(request, 'fichas/eliminar_personal.html', context)
-def mostrar_personal(request, pk):
-    usuario = Usuario.objects.get(id=pk)
-    context = {'usuario': usuario}
-    return render(request, 'fichas/mostrar_usuario.html', context)
+    return render(request, 'personalSalud/eliminar_personal.html', context)
+def view_personalSalud(request, pk):
+    personal = PersonalSalud.objects.get(id=pk)
+    usuario = personal.usuario_id  # Acceder al objeto Usuario relacionado
+    context = {
+        'personal': personal,
+        'usuario': usuario
+    }
+    return render(request, 'personalSalud/mostrar_personal.html', context)
 
 
 
@@ -91,8 +99,7 @@ def especialidad(request):
     especialidad = Especialidad.objects.all()
     return render(request, 'fichas/especialidad.html', {'especialidad': especialidad})
 
-def crear_especialidad(request):
-    form = EspecialidadForm()
+def create_especialidad(request):
     if request.method == 'POST':
         form = EspecialidadForm(request.POST)
         if form.is_valid():
@@ -103,7 +110,7 @@ def crear_especialidad(request):
     return render(request, 'fichas/especialidad_form.html', context)
 
 
-def modificarEspecialidad(request, pk):
+def edit_especialidad(request, pk):
     especialidad = Especialidad.objects.get(id=pk)
     form = EspecialidadForm(instance=especialidad)
     if request.method == 'POST':
@@ -115,10 +122,18 @@ def modificarEspecialidad(request, pk):
     return render(request, 'fichas/especialidad_form.html', context)
 
 
-def eliminarEspecialidad(request, pk):
+def delete_especialidad(request, pk):
     especialidad = Especialidad.objects.get(id=pk)
     if request.method == "POST":
         especialidad.delete()
         return redirect('/especialidad')
     context = {'especialidad': especialidad}
     return render(request, 'fichas/eliminar_especialidad.html', context)
+
+def view_especialidad(request, pk):
+    especialidad = Especialidad.objects.get(id=pk)
+    context = {
+        'especialidad': especialidad
+    }
+    return render(request, 'fichas/mostrar_especialidad.html', context)
+
