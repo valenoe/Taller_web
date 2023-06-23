@@ -37,6 +37,8 @@ urlpatterns = [
     path('crear_especialidad/', views.create_especialidad, name='crear_especialidad'),
     path('modificar_especialidad/<str:pk>/', views.edit_especialidad, name='modificar_especialidad'),
     path('eliminar_especialidad/<str:pk>/', views.delete_especialidad, name='eliminar_especialidad'),
+    path('mostrar_especialidad', views.view_especialidad, name='mostrar_especialidad'),
+
 
 
 ]
