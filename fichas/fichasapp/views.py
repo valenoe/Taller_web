@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import *
-from fichasapp.forms import *
+from .forms import *
 from django.shortcuts import get_object_or_404
 
 
 def home(request):
     return render(request, 'fichas/index.html')
 
+
 def usuarios(request):
     usuarios = Usuario.objects.all()
     return render(request, 'usuarios/usuarios.html', {'usuarios': usuarios})
-
 
 
 def create_usuario(request):
@@ -51,9 +51,11 @@ def view_usuario(request, pk):
     context = {'usuario': usuario}
     return render(request, 'usuarios/view_usuario.html', context)
 
+
 def personalSalud(request):
     personal = PersonalSalud.objects.all()
     return render(request, 'personalSalud/psalud.html', {'personal': personal})
+
 
 def create_personalSalud(request):
     form = PersonalSaludForm()
@@ -65,6 +67,7 @@ def create_personalSalud(request):
 
     context = {'form': form}
     return render(request, 'personalSalud/personal_form.html', context)
+
 
 def edit_personalSalud(request, pk):
     personal = PersonalSalud.objects.get(id=pk)
@@ -85,6 +88,8 @@ def delete_personalSalud(request, pk):
         return redirect('/personalsalud')
     context = {'personal': personal}
     return render(request, 'personalSalud/eliminar_personal.html', context)
+
+
 def view_personalSalud(request, pk):
     personal = PersonalSalud.objects.get(id=pk)
     usuario = personal.usuario_id  # Acceder al objeto Usuario relacionado
@@ -95,10 +100,10 @@ def view_personalSalud(request, pk):
     return render(request, 'personalSalud/mostrar_personal.html', context)
 
 
-
 def especialidad(request):
     especialidad = Especialidad.objects.all()
     return render(request, 'especialidad/especialidad.html', {'especialidad': especialidad})
+
 
 def create_especialidad(request):
     form = EspecialidadForm()
@@ -132,12 +137,14 @@ def delete_especialidad(request, pk):
     context = {'especialidad': especialidad}
     return render(request, 'especialidad/eliminar_especialidad.html', context)
 
+
 def view_especialidad(request, pk):
     especialidad = Especialidad.objects.get(id=pk)
     context = {
         'especialidad': especialidad
     }
     return render(request, 'especialidad/mostrar_especialidad.html', context)
+
 
 def fichas(request):
     fichas = Ficha.objects.all()
@@ -191,8 +198,10 @@ def edit_ficha(request, pk):
     context = {'form': form}
     return render(request, 'fichas/ficha_form.html', context)
 
+
 def login(request):
     return render(request, '/login.html')
+
 
 def horas(request):
     horas = Horas.objects.all()
@@ -200,6 +209,7 @@ def horas(request):
         'horas': horas,
     }
     return render(request, 'horas/horas.html', context)
+
 
 def create_horas(request):
     form = HorasForm()

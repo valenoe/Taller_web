@@ -15,12 +15,15 @@ body {
 }
 
 .sidebar ul {
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 .sidebar ul li {
   margin-bottom: 10px;
+  background-color: #4dd0e1;
+  border-radius: 5px;
 }
 
 .sidebar ul li a {
@@ -36,8 +39,11 @@ body {
   color: #f8f9fa;
 }
 
-.active a {
+
+
+/*.active a {
   background-color: #9575cd;
   color: #f8f9fa;
   border-radius: 5px;
-}
+}*/
+

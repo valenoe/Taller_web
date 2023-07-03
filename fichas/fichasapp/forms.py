@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 
+
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
@@ -19,6 +20,7 @@ class UsuarioForm(forms.ModelForm):
             'correo': forms.EmailInput(attrs={'class': 'form-control'}),
             'rol': forms.Select(attrs={'class': 'form-select'}),
         }
+
 
 class PersonalSaludForm(forms.ModelForm):
     class Meta:
@@ -43,6 +45,7 @@ class EspecialidadForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+
 class FichaForm(forms.ModelForm):
 
     class Meta:
@@ -54,7 +57,7 @@ class FichaForm(forms.ModelForm):
             'apellido': 'Apellido',
             'fecha_nacimiento': 'Fecha de Nacimiento',
             'prevision_salud': 'Previsión de Salud',
-            'tipo_isapre':'Tipo_isapre',
+            'tipo_isapre': 'Tipo_isapre',
             'domicilio': 'Domicilio',
             'sexo': 'Sexo',
         }
@@ -68,19 +71,24 @@ class FichaForm(forms.ModelForm):
             'domicilio': forms.TextInput(attrs={'class': 'form-control'}),
             'sexo': forms.Select(attrs={'class': 'form-select'}),
         }
+
+    class Media:
+        js = ('static/js/ficha_form.js',)
+
+
 class HorasForm(forms.ModelForm):
     class Meta:
         model = Horas
         fields = ('fecha', 'hora', 'id_medico', 'ocupada',)
         labels = {
-            'fecha':'Fecha',
+            'fecha': 'Fecha',
             'hora': 'Hora',
             'id_medico': 'Id_medico',
             'ocupada': 'ocupada',
         }
         widgets = {
             'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'hora': forms.TimeInput(attrs={'class':'timepicker'}),
+            'hora': forms.TimeInput(attrs={'class': 'timepicker'}),
             'id_medico': forms.Select(attrs={'class': 'form-select'}),
-            'ocupada': forms.CheckboxInput(attrs={'class':'custom-checkbox'}),
+            'ocupada': forms.CheckboxInput(attrs={'class': 'custom-checkbox'}),
         }
