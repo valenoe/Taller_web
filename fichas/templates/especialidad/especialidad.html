@@ -26,12 +26,15 @@
                     <td>{{p.name}}</td>
 
                     <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                      {% if user.is_authenticated %}
                      <a name="" id="" class="btn btn-primary" href="{% url 'modificar_especialidad' pk=p.id %}"
                         role="button">Modificar</a>
                       <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_especialidad' p.id %}" role="button">Ver</a>
 
                       <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_especialidad' pk=p.id %}"
                         role="button">Eliminar</a>
+                      
+                      {%endif%}
                     </td>
                   </tr>
                   {% endfor %}
