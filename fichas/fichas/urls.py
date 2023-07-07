@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('personalsalud/', views.personalSalud, name='personalsalud'),
     path('crear_personal/', views.create_personalSalud, name='crear_personal'),
-    path('menu/', views.home, name='menu'),
+    #path('menu/', views.home, name='menu'),
     path('modificar_personal/<str:pk>', views.edit_personalSalud, name='modificar_personal'),
     path('eliminar_personal/<str:pk>', views.delete_personalSalud, name='eliminar_personal'),
     path('mostrar_personal/<str:pk>', views.view_personalSalud, name='mostrar_personal'),
