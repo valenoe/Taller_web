@@ -44,7 +44,9 @@ urlpatterns = [
     path('eliminar_ficha/<str:pk>', views.delete_ficha, name='eliminar_ficha'),
     path('mostrar_ficha/<str:pk>', views.view_ficha, name='mostrar_ficha'),
     path('horas/', views.horas, name='horas'),
-    path('crear_horas/', views.create_horas, name='crear_horas'),
+    path('crear_horas/<str:pk>', views.create_horas, name='crear_horas'),
+    path('citas/', views.view_citas, name='citas'),
+    path('crear_citas/', views.create_cita, name='crear_citas'),
 
 
 

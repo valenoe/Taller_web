@@ -1,0 +1,55 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col py-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12 p-2">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1>Cita Medica</h1>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label for="{{ form.rut_paciente.id_for_label }}" class="form-label">{{ form.rut_paciente.label }}</label>
+                                            {{ form.rut_paciente }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="{{ form.id_medico.id_for_label }}" class="form-label">{{ form.id_medico.label }}</label>
+                                            {{ form.id_medico }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="{{ form.id_horario.id_for_label }}" class="form-label">{{ form.id_horario.label }}</label>
+                                            <select name="{{ form.id_horario.name }}" id="{{ form.id_horario.id_for_label }}" class="form-select">
+                                                {% for hora in form.id_horario.field.queryset %}
+                                                    <option value="{{ hora.pk }}">{{ hora.hora }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="{{ form.acompannante.id_for_label }}" class="form-label">{{ form.acompannante.label }}</label>
+                                            {{ form.acompannante }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="{{ form.telefono.id_for_label }}" class="form-label">{{ form.telefono.label }}</label>
+                                            {{ form.telefono }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="{{ form.correo.id_for_label }}" class="form-label">{{ form.correo.label }}</label>
+                                            {{ form.correo }}
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Tomar Hora</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

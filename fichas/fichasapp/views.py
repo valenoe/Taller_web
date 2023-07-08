@@ -203,21 +203,61 @@ def login(request):
     return render(request, '/login.html')
 
 
+def login(request):
+    return render(request, '/login.html')
+
+
+def create_horas(request, pk):
+    medico = Usuario.objects.get(id=pk)
+    if request.method == 'POST':
+        form = HorasForm(request.POST, initial={'id_medico': medico.nombre})
+        if form.is_valid():
+            form.save()
+            return redirect('horas')  # Redirige a la página de horas disponibles o a la página deseada
+    else:
+        form = HorasForm()
+
+    context = {
+        'form': form,
+        'medico': medico
+    }
+    return render(request, 'horas/horas_form.html', context)
+
+
 def horas(request):
+    personal = PersonalSalud.objects.all()
     horas = Horas.objects.all()
     context = {
-        'horas': horas,
+        'personal': personal,
+        'horas': horas
     }
     return render(request, 'horas/horas.html', context)
 
+def view_hora(request, pk):
+    hora = Horas.objects.get(id=pk)
+    context = {'hora': hora}
+    return render(request, 'horas/view_hora.html', context)
 
-def create_horas(request):
-    form = HorasForm()
+def create_cita(request):
     if request.method == 'POST':
-        form = HorasForm(request.POST)
+        form = CitaForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/horas')
-
+            cita = form.save(commit=False)
+            hora = cita.id_horario
+            if not hora.ocupada:
+                hora.ocupada = True
+                hora.save()
+                cita.id_horario = get_object_or_404(Horas, id=hora.id)  # Retrieve the complete Horas object
+                cita.save()
+                return redirect('/')
+    else:
+        form = CitaForm()
     context = {'form': form}
-    return render(request, 'horas/horas_form.html', context)
+    return render(request, 'citas/cita_form.html', context)
+
+
+def view_citas(request):
+    citas = Cita.objects.all()
+    context = {'citas': citas}
+    return render(request, 'citas/citas.html', context)
+

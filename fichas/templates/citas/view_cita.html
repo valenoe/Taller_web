@@ -1,0 +1,42 @@
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Listado de Citas</h4>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>RUT del Paciente</th>
+                      <th>Horario</th>
+                      <th>Acompañante</th>
+                      <th>Médico</th>
+                      <th>Teléfono</th>
+                      <th>Correo Electrónico</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for cita in citas %}
+                    <tr>
+                      <td>{{ cita.rut_paciente }}</td>
+                      <td>{{ cita.id_horario.fecha }} {{ cita.id_horario.hora }}</td>  <!-- Concatenate fecha and hora fields from the associated Horas object -->
+                      <td>{{ cita.acompannante }}</td>
+                      <td>{{ cita.id_medico }}</td>
+                      <td>{{ cita.telefono }}</td>
+                      <td>{{ cita.correo }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+

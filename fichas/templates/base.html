@@ -20,58 +20,60 @@
           {% if user.is_authenticated %}
         <ul>
             <li class="nav-item">
-                <a href="{% url 'fichasapp:index' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'fichasapp:index' %}" class="nav-link">
                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Menú</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'usuarios' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'usuarios' %}" class="nav-link">
                     <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'fichas' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'fichas' %}" class="nav-link">
                     <i class="fs-4 bi-file-medical"></i> <span class="ms-1 d-none d-sm-inline">Fichas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'personalsalud' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'personalsalud' %}" class="nav-link">
                     <i class="fs-4 bi-person-badge"></i> <span class="ms-1 d-none d-sm-inline">Personal de salud</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'especialidad' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'especialidad' %}" class="nav-link">
                     <i class="fs-4 bi-person-lines-fill"></i> <span class="ms-1 d-none d-sm-inline">Especialidad</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a href="{% url 'horas' %}" class="nav-link align-middle px-0">
-                    <i class="fs-4 bi-hourglass-split"></i> <span class="ms-1 d-none d-sm-inline">Horas</span>
-                </a>
-            </li>
+                    <a href="{% url 'citas' %}" class="nav-link">
+                        <i class="bi bi-journal-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">Citas</span>
+                    </a>
+                </li>
         </ul>
         {% else %}
         <ul >
             <li class="nav-item">
-                <a href="{% url 'fichasapp:index' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'fichasapp:index' %}" class="nav-link">
                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Menú</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'personalsalud' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'personalsalud' %}" class="nav-link">
                     <i class="fs-4 bi-person-badge"></i> <span class="ms-1 d-none d-sm-inline">Personal de salud</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'especialidad' %}" class="nav-link align-middle px-0">
+                <a href="{% url 'especialidad' %}" class="nav-link">
                     <i class="fs-4 bi-person-lines-fill"></i> <span class="ms-1 d-none d-sm-inline">Especialidad</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a href="{% url 'horas' %}" class="nav-link align-middle px-0">
-                    <i class="fs-4 bi-hourglass-split"></i> <span class="ms-1 d-none d-sm-inline">Horas</span>
-                </a>
-            </li>
+                    <a href="{% url 'citas' %}" class="nav-link">
+                        <i class="bi bi-journal-bookmark-fill"></i> <span class="ms-1 d-none d-sm-inline">Citas</span>
+                    </a>
+                </li>
         </ul>
         {% endif %}
                 <div class="dropdown pb-4">
@@ -89,15 +91,17 @@
                         id="dropdownUser2">Iniciar sesión</a>
                     {%endif%}
                 </div>
-        </div>
-        <!-- fin sidebar -->
-        <div class="col py-3 mx-auto">
+          </div>
+        <div class="col py-3">
+            <div class="row">
 
-            <div class="col-md-12 mx-auto">
-                <div class="col-md-12 mx-auto ">
-                {% block content %}
-                {% endblock content %}
+                <div class="col-md-12">
+                  <div class="col-md-12 p-2">
+                    {% block content %}
+                    {% endblock content %}
+                  </div>
                 </div>
+
             </div>
         </div>
     </div>

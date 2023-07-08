@@ -1,0 +1,72 @@
+/* Sidebar styling */
+.sidebar {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: #333;
+    padding-top: 20px;
+    color: #fff;
+  }
+
+  /* Additional styles as per your requirements */
+
+
+  .sidebar h4 {
+    color: #fff;
+  }
+
+  .sidebar p {
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar ul.nav-pills .nav-item .nav-link {
+    color: #fff;
+    transition: color 0.3s;
+  }
+
+  .sidebar ul.nav-pills .nav-item .nav-link:hover,
+  .sidebar ul.nav-pills .nav-item .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar .dropdown .dropdown-toggle {
+    color: #fff;
+    transition: color 0.3s;
+  }
+
+  .sidebar .dropdown .dropdown-toggle:hover,
+  .sidebar .dropdown .dropdown-toggle:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sidebar .dropdown-menu .dropdown-item {
+    color: #fff;
+    transition: color 0.3s;
+  }
+
+  .sidebar .dropdown-menu .dropdown-item:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar .dropdown-divider {
+    border-top-color: #aaa;
+  }
+
+  /* Additional styles as per your requirements */

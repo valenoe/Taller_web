@@ -12,7 +12,9 @@
               Lista de Especialidades
             </p>
             <div class="table-responsive">
+              {% if user.is_authenticated %}
               <a  class="btn btn-primary" href="{% url 'crear_especialidad' %}" role="button">Crear Especialidad</a>
+              {%endif%}
               <table class="table">
                 <thead>
                   <tr>
