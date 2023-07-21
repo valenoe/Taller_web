@@ -214,7 +214,7 @@ def create_horas(request):
             return redirect('horas')
     else:
         form = HorasForm()
-    return render(request, 'horas\horas_form.html', {'form': form})
+    return render(request, 'horas/horas_form.html', {'form': form})
 
 
 def horas(request):
