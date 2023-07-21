@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class="container">
+                <h1 class="mt-5">Detalles de la Hora</h1>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item"><strong>Fecha:</strong> {{ hora.fecha }}</li>
+                    <li class="list-group-item"><strong>Horas Seleccionadas:</strong>
+                            {{ hora.hora }}
+                    </li>
+                    <li class="list-group-item"><strong>Médico:</strong> {{ hora.id_medico }}</li>
+                </ul>
+                <a href="{% url 'horas' %}" class="btn btn-primary mt-4">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

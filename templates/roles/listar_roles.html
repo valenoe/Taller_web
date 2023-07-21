@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-auto grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Roles</h4>
+            <p class="card-description">
+              Lista de Roles
+            </p>
+            <div class="table-responsive">
+              <a  class="btn btn-primary" href="{% url 'crear_rol' %}" role="button">Crear Roles</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Rol</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for rol in roles %}
+                  <tr>
+                    <td>{{ rol.name }}</td>
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                     <a class="btn btn-primary" href="{% url 'modificar_rol' rol.id %}" role="button">Modificar</a>
+                      <a class="btn btn-secondary" href="{% url 'ver_rol' rol.id %}" role="button">Ver</a>
+                      <a class="btn btn-danger" href="{% url 'eliminar_rol' rol.id %}" role="button">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

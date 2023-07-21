@@ -1,0 +1,51 @@
+<!-- horas_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-lg-auto grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Horas</h4>
+                        <p class="card-description">
+                            Lista de Horas
+                        </p>
+                        <div class="table-responsive">
+                            <a name="" id="" class="btn btn-primary" href="{% url 'crear_horas' %}" role="button">Crear Hora</a>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Médico</th>
+                                        <th>Ocupada</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for hora in horas %}
+                                    <tr>
+                                        <td>{{ hora.fecha }}</td>
+                                        <td>{{ hora.hora }}</td>
+                                        <td>{{ hora.id_medico }}</td>
+                                        <td>{{ hora.ocupada }}</td>
+                                        <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <a name="" id="" class="btn btn-primary" href="{% url 'modificar_hora' hora.id %}" role="button">Modificar</a>
+                                            <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_hora' hora.id %}" role="button">Ver</a>
+                                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_hora' hora.id %}" role="button">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

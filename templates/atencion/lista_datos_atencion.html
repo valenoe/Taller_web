@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Lista de Datos de Atención</h4>
+            <p class="card-description">Lista de datos de atención registrados</p>
+            <div class="table-responsive">
+              <a name="" id="" class="btn btn-primary" href="{% url 'citas' %}" role="button">Crear Datos de Atención</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Cita</th>
+                    <th>Patología GES</th>
+                    <th>Diagnóstico Principal</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for datos_atencion in datos_atencion_list %}
+                  <tr>
+                    <td>{{ datos_atencion.id_cita }}</td>
+                    <td>{{ datos_atencion.patologia_ges }}</td>
+                    <td>{{ datos_atencion.diagnostico_principal }}</td>
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                      <a name="" id="" class="btn btn-primary" href="{% url 'modificar_datos_atencion' datos_atencion.id %}" role="button">Modificar</a>
+                      <a name="" id="" class="btn btn-secondary" href="{% url 'detalle_datos_atencion' datos_atencion.id %}" role="button">Ver</a>
+                      <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_datos_atencion' datos_atencion.id %}" role="button">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

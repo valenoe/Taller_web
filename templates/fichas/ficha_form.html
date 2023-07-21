@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+<div class="container">
+  <h1>Form Example</h1>
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="{{ form.usuario.id_for_label }}" class="form-label">{{ form.usuario.label }}</label>
+      {{ form.usuario }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.fecha_nacimiento.id_for_label }}" class="form-label">{{ form.fecha_nacimiento.label }}</label>
+      {{ form.fecha_nacimiento }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.prevision_salud.id_for_label }}" class="form-label">{{ form.prevision_salud.label }}</label>
+      {{ form.prevision_salud }}
+    </div>
+
+    <div class="mb-3">
+      <div id="isapre-field" style="display: none;">
+        <label for="{{ form.tipo_isapre.id_for_label }}" class="form-label">{{ form.tipo_isapre.label }}</label>
+        {{ form.tipo_isapre }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.domicilio.id_for_label }}" class="form-label">{{ form.domicilio.label }}</label>
+      {{ form.domicilio }}
+    </div>
+
+    <div class="mb-3">
+      <label for="{{ form.sexo.id_for_label }}" class="form-label">{{ form.sexo.label }}</label>
+      {{ form.sexo }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+<script>
+  const selection = document.getElementById('id_prevision_salud');
+
+  const isapreField = document.getElementById('isapre-field');
+
+  selection.addEventListener('change', function() {
+    const selectedValue = selection.value;
+
+    if (selectedValue === 'Isapre') {
+      isapreField.style.display = 'block';
+    } else {
+      isapreField.style.display = 'none';
+    }
+  });
+</script>
+
+
+{% endblock %}

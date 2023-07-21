@@ -1,0 +1,28 @@
+
+{% block content %}
+<div class="modal fade" id="deleteModal{{ ficha.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ ficha.id }}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="deleteModalLabel{{ ficha.id }}">Eliminar Ficha</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro que desea eliminar la ficha?</p>
+        <p><strong>RUT:</strong> {{ ficha.rut }}</p>
+        <p><strong>Nombre:</strong> {{ ficha.nombre }}</p>
+        <p><strong>Apellido:</strong> {{ ficha.apellido }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ ficha.fecha_nacimiento|date:'d/m/Y' }}</p>
+        <p><strong>Previsión de Salud:</strong> {{ ficha.prevision_salud }}</p>
+        <p><strong>Domicilio:</strong> {{ ficha.domicilio }}</p>
+        <p><strong>Sexo:</strong> {{ ficha.sexo }}</p>
+        <form method="POST" action="{% url 'eliminar_ficha' ficha.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Fichas Médicas</h4>
+            <p class="card-description">
+              Lista de Pacientes
+            </p>
+            <div class="table-responsive">
+              <a name="" id="" class="btn btn-primary" href="{% url 'crear_ficha' %}" role="button">Crear Ficha</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Rut</th>
+                    <th>Prevision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for ficha in fichas %}
+                  <tr>
+                    <td>{{ ficha.usuario.nombre }}</td>
+                    <td>{{ ficha.usuario.apellido }}</td>
+                    <td>{{ ficha.usuario.rut }}</td>
+                    <td>{{ ficha.prevision_salud }}</td>
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                      <a name="" id="" class="btn btn-primary" href="{% url 'modificar_ficha' ficha.id %}" role="button">Modificar</a>
+                      <a name="" id="" class="btn btn-secondary" href="#patientModal{{ ficha.id }}" role="button" data-bs-toggle="modal">Ver</a>
+                      <a name="" id="" class="btn btn-danger" href="#deleteModal{{ ficha.id }}" role="button" data-bs-toggle="modal">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% include 'fichas/view_ficha.html' %}
+                  {% include 'fichas/delete_ficha.html' %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-auto grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Personal de salud</h4>
+            <p class="card-description">
+              Lista de Personal de salud
+            </p>
+            <div class="table-responsive">
+              <a  class="btn btn-primary" href="{% url 'crear_personal' %}" role="button">Crear Personal</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Especialidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for p in personal %}
+                  <tr>
+                    <td>{{p.usuario}}</td>
+                    <td>{{p.especialidad}}</td>
+
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                     <a class="btn btn-primary" href="{% url 'modificar_personal' p.id %}" role="button">Modificar</a>
+                      <a  class="btn btn-secondary" href="{% url 'mostrar_personal' p.id %}" role="button">Ver</a>
+                      <a  class="btn btn-danger" href="{% url 'eliminar_personal' p.id %}" role="button">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

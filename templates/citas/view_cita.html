@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class="container">
+                <h1 class="mt-5">Detalles de la Cita</h1>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item"><strong>Usuario:</strong> {{ cita.usuario.nombre }} {{ cita.usuario.apellido }}</li>
+                    <li class="list-group-item"><strong>Médico:</strong> {{ cita.id_medico.usuario.nombre }} {{ cita.id_medico.usuario.apellido }}</li>
+                    <li class="list-group-item"><strong>Especialidad:</strong> {{ cita.id_medico.especialidad }}</li>
+                    <li class="list-group-item"><strong>Fecha:</strong> {{ cita.id_horario.fecha }}</li>
+                    <li class="list-group-item"><strong>Hora:</strong> {{ cita.id_horario.hora }}</li>
+                    <li class="list-group-item"><strong>Acompañante:</strong> {{ cita.acompannante }}</li>
+                    <li class="list-group-item"><strong>Teléfono:</strong> {{ cita.telefono }}</li>
+                    <li class="list-group-item"><strong>Correo Electrónico:</strong> {{ cita.correo }}</li>
+                </ul>
+                <a href="{% url 'citas' %}" class="btn btn-primary mt-4">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

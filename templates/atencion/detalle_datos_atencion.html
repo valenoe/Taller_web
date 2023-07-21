@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Detalles de Datos de Atención</h4>
+            <ul class="list-group mt-4">
+                <li class="list-group-item"><strong>Patologia GES:</strong> {{ datos_atencion.patologia_ges }}</li>
+                <li class="list-group-item"><strong>Diagnóstico Principal:</strong> {{ datos_atencion.diagnostico_principal }}</li>
+                <li class="list-group-item"><strong>Diagnóstico Complementario:</strong> {{ datos_atencion.disgnotico_complementario }}</li>
+                <!-- Add other fields here -->
+            </ul>
+            <a href="{% url 'usuarios' %}" class="btn btn-primary mt-4">Regresar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <h1 class="mt-5">Eliminar Horas</h1>
+            <form action="{% url 'eliminar_hora' hora.id %}" method="POST">
+                {% csrf_token %}
+                <div class="alert alert-danger mt-4">
+                    ¿Estás seguro de que deseas eliminar estas horas para el médico {{ hora.id_medico }} en la fecha {{ hora.fecha|date:'Y-m-d' }} a las {{ hora.hora }}?
+                </div>
+                <a href="{% url 'horas' %}" class="btn btn-secondary mt-4">Cancelar</a>
+                <input type="submit" class="btn btn-danger mt-4" name="confirm" value="Confirmar">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Lista de Citas</h4>
+            <p class="card-description">Lista de citas registradas</p>
+            <div class="table-responsive">
+              <a name="" id="" class="btn btn-primary" href="{% url 'crear_citas' %}" role="button">Crear Cita</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Médico</th>
+                    <th>Horario</th>
+                    <th>Acompañante</th>
+                    <th>Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cita in citas %}
+                  <tr>
+                    <td>{{ cita.usuario }}</td>
+                    <td>{{ cita.id_medico.usuario.nombre }} - {{ cita.id_medico.usuario.apellido }}</td>
+                    <td>{{ cita.id_horario }} - {{ cita.id_horario.hora }}</td>
+                    <td>{{ cita.acompannante }}</td>
+                    <td>{{ cita.telefono }}</td>
+                    <td>{{ cita.correo }}</td>
+                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                      <a name="" id="" class="btn btn-primary" href="{% url 'modificar_cita' cita.id %}" role="button">Modificar</a>
+                      <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_cita' cita.id %}" role="button">Ver</a>
+                      <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_cita' cita.id %}" role="button">Eliminar</a>
+                      <!-- Add the button for Detalle de Atencion -->
+                      <a name="" id="" class="btn btn-info" href="{% url 'crear_datos_atencion' cita.id %}" role="button">Detalle de Atencion</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
