@@ -4,13 +4,15 @@
     left: 0;
     height: 100%;
     width: 280px;
-    background-color: #333;
+    background-color:  #7cb6a7;
     padding-top: 20px;
     color: #fff;
   }
   
   /* Additional styles as per your requirements */
-  
+  .rosado {
+    background-color: #e6bcc5;
+  }
   
   .sidebar h4 {
     color: #fff;

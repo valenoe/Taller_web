@@ -383,7 +383,6 @@ class CitaPacienteForm(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
             'correo': forms.EmailInput(attrs={'class': 'form-control'}),
         }
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['id_medico'].queryset = PersonalSalud.objects.all()
@@ -401,3 +400,27 @@ class CitaPacienteForm(forms.ModelForm):
         else:
             # If no form data is available, show all available id_horarios
             self.fields['id_horario'].queryset = Horas.objects.filter(ocupada=False)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        id_horario = cleaned_data.get('id_horario')
+        id_medico = cleaned_data.get('id_medico')
+
+        if id_horario and id_medico:
+            if Cita.objects.filter(id_horario=id_horario, id_medico=id_medico).exists():
+                raise ValidationError('This combination of horario and médico already exists.')
+
+        return cleaned_data
+        
+    def save(self, commit=True):
+        cita = super().save(commit=False)
+        id_horario = self.cleaned_data.get('id_horario')
+        if id_horario:
+            # Update the ocupada field to True when an id_horario is selected
+            cita.id_horario.ocupada = True
+            cita.id_horario.save()
+
+        if commit:
+            cita.save()
+
+        return cita
