@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Rol: {{ rol.name }}</h2>
-  <a href="{% url 'modificar_rol' rol.id %}">Editar</a>
-  <a href="{% url 'eliminar_rol' rol.id %}">Eliminar</a>
-  <a href="{% url 'listar_roles' %}">Volver a la lista</a>
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class="container">
+                <h1 class="mt-5">Detalles Rol</h1>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item"><strong>Rol:</strong> {{ rol.name }}</li>
+                </ul>
+                <a href="{% url 'listar_roles' %}" class="btn btn-primary mt-4">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

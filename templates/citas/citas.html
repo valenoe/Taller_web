@@ -19,9 +19,6 @@
                     <th>Usuario</th>
                     <th>Médico</th>
                     <th>Horario</th>
-                    <th>Acompañante</th>
-                    <th>Teléfono</th>
-                    <th>Correo Electrónico</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -31,15 +28,11 @@
                     <td>{{ cita.usuario }}</td>
                     <td>{{ cita.id_medico.usuario.nombre }} - {{ cita.id_medico.usuario.apellido }}</td>
                     <td>{{ cita.id_horario }} - {{ cita.id_horario.hora }}</td>
-                    <td>{{ cita.acompannante }}</td>
-                    <td>{{ cita.telefono }}</td>
-                    <td>{{ cita.correo }}</td>
-                    <td class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <td class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                       <a name="" id="" class="btn btn-primary" href="{% url 'modificar_cita' cita.id %}" role="button">Modificar</a>
                       <a name="" id="" class="btn btn-secondary" href="{% url 'mostrar_cita' cita.id %}" role="button">Ver</a>
                       <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_cita' cita.id %}" role="button">Eliminar</a>
-                      <!-- Add the button for Detalle de Atencion -->
-                      <a name="" id="" class="btn btn-info" href="{% url 'crear_datos_atencion' cita.id %}" role="button">Detalle de Atencion</a>
+                      <a name="" id="" class="btn btn-info" href="{% url 'crear_datos_atencion' cita.id %}" role="button">Atencion</a>
                     </td>
                   </tr>
                   {% endfor %}

@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Modificar Rol</h2>
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar Cambios</button>
-  </form>
-  <a href="{% url 'ver_rol' rol.id %}">Cancelar</a>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-lg-auto grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Crear nuevo Rol</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="btn-group mt-2">
+                                    <input type="submit" class="btn btn-primary" name="Submit" value="Guardar">
+                                    <a href="{% url 'listar_roles' %}" class="btn btn-secondary">Regresar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

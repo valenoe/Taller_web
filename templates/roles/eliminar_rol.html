@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-  <h2>Eliminar Rol</h2>
-  <p>¿Estás seguro que deseas eliminar el rol "{{ rol.name }}"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Eliminar</button>
-  </form>
-  <a href="{% url 'ver_rol' rol.id %}">Cancelar</a>
+<div class="card">
+    <div class="card-body">
+      <div class="container">
+        <h1 class="mt-5">Eliminar rol: {{ rol.name }}</h1>
+        <form action="{% url 'eliminar_rol' rol.id %}" method="POST">
+            {% csrf_token %}
+            <div class="alert alert-danger mt-4">
+                ¿Estás seguro de que deseas eliminar este rol?
+            </div>
+            <a href="{% url 'listar_roles' %}" class="btn btn-secondary mt-4">Cancelar</a>
+            <input type="submit" class="btn btn-danger mt-4" name="confirm" value="Confirmar">
+        </form>
+    </div>
+    </div>
+</div>
+
 {% endblock %}

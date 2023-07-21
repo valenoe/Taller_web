@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card-body">
       <div class="container">
-        <h1 class="mt-5">Eliminar a {{especialidad.name}}}</h1>
+        <h1 class="mt-5">Eliminar a {{especialidad.name}}</h1>
         <form action="{% url 'eliminar_especialidad' especialidad.id %}" method="POST">
             {% csrf_token %}
             <div class="alert alert-danger mt-4">
