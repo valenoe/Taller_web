@@ -388,9 +388,42 @@ def crear_paciente(request):
             usuario = form.save(commit=False)
             usuario.rol = Rol.objects.get(name='Paciente')
             usuario.save()
-            return redirect('/usuarios')  # Redirect to the appointments page after saving the user
+            return redirect('ficha_paciente', pk=usuario.pk)  
     else:
-        form = UsuarioPacienteForm(initial={'rol': Rol.objects.get(name='Paciente')})  # Set the default rol to 'Paciente'
+        form = UsuarioPacienteForm(initial={'rol': Rol.objects.get(name='Paciente')})  
 
     context = {'form': form}
     return render(request, 'paciente/crear_paciente.html', context)
+
+def ficha_paciente(request, pk):
+    usuario = get_object_or_404(Usuario, pk=pk)
+
+    if request.method == 'POST':
+        form = FichaPacienteForm(request.POST)
+        if form.is_valid():
+            ficha = form.save(commit=False)
+            ficha.usuario = usuario
+            ficha.save()
+            return redirect('cita_paciente', pk=ficha.pk)  
+    else:
+        form = FichaPacienteForm(initial={'usuario': usuario})  
+
+    context = {'form': form}
+    return render(request, 'paciente/ficha_paciente.html', context)
+
+def cita_paciente(request, pk):
+    ficha = get_object_or_404(Ficha, pk=pk)
+
+    if request.method == 'POST':
+        form = CitaPacienteForm(request.POST)
+        if form.is_valid():
+            cita = form.save(commit=False)
+            cita.usuario = ficha.usuario
+            cita.save()
+            return redirect('/citas')  
+    else:
+        form = CitaPacienteForm(initial={'usuario': ficha.usuario})  
+
+    context = {'form': form}
+    return render(request, 'paciente/cita_paciente.html', context)
+

@@ -64,6 +64,7 @@ urlpatterns = [
     path('roles/ver/<int:rol_id>/', views.ver_rol, name='ver_rol'),
     path('roles/modificar/<int:rol_id>/', views.modificar_rol, name='modificar_rol'),
     path('roles/eliminar/<int:rol_id>/', views.eliminar_rol, name='eliminar_rol'),
-    path('crear_paciente/', views.crear_paciente, name='crear_paciente/'),
-
+    path('crear_paciente/', views.crear_paciente, name='crear_paciente'),
+    path('ficha_paciente/<int:pk>/', views.ficha_paciente, name='ficha_paciente'),
+    path('cita_paciente/<int:pk>/', views.cita_paciente, name='cita_paciente'),
 ]

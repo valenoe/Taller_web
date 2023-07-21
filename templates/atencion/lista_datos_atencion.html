@@ -23,7 +23,7 @@
                 <tbody>
                   {% for datos_atencion in datos_atencion_list %}
                   <tr>
-                    <td>{{ datos_atencion.id_cita }}</td>
+                    <td>{{ datos_atencion.id_cita.usuario.nombre }} - {{ datos_atencion.id_cita.usuario.apellido }}</td>
                     <td>{{ datos_atencion.patologia_ges }}</td>
                     <td>{{ datos_atencion.diagnostico_principal }}</td>
                     <td class="btn-group" role="group" aria-label="Basic mixed styles example">

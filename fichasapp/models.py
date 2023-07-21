@@ -93,7 +93,7 @@ class DatosAtencion(models.Model):
     satO2 = models.CharField(max_length=100, default=None)
     pulso = models.CharField(max_length=100, default=None)
     alergias = models.CharField(max_length=100, default=None)
-    tratamiento = models.CharField(max_length=100, default='Tratamiento')
+    tratamiento = models.CharField(max_length=100, default=None)
     def __str__(self):
         return self.diagnostico_principal
 

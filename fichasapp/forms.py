@@ -288,23 +288,25 @@ class DatosAtencionForm(forms.ModelForm):
         fields = '__all__'
         labels = {
             'diagnostico_principal': 'Diagnóstico Principal',
-            'diagnostico_complementario': 'Diagnóstico Complementario',
+            'disgnotico_complementario': 'Diagnóstico Complementario',
             'presion': 'Presión',
             'temperatura': 'Temperatura',
             'peso': 'Peso',
             'satO2': 'SatO2',
             'pulso': 'Pulso',
             'alergias': 'Alergias',
+            'tratamiento': 'tratamiento',
         }
         widgets = {
             'diagnostico_principal': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnóstico Principal'}),
-            'diagnostico_complementario': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnóstico Complementario'}),
+            'disgnotico_complementario': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Diagnóstico Complementario'}),
             'presion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Presión'}),
             'temperatura': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Temperatura'}),
             'peso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Peso'}),
             'satO2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'SatO2'}),
             'pulso': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Pulso'}),
             'alergias': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Alergias'}),
+            'tratamiento': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tratamiento'}),
         }
 
 class RolForm(forms.ModelForm):
@@ -336,3 +338,66 @@ class UsuarioPacienteForm(forms.ModelForm):
             'correo': forms.EmailInput(attrs={'class': 'form-control'}),
             'rol': forms.HiddenInput(),  # Hide the rol field from the user
         }
+class FichaPacienteForm(forms.ModelForm):
+    class Meta:
+        model = Ficha
+        fields = '__all__'  # To include all fields from the model
+
+        labels = {
+            'usuario':'Usuario',
+            'fecha_nacimiento': 'Fecha de Nacimiento',
+            'prevision_salud': 'Previsión de Salud',
+            'tipo_isapre': 'Tipo de Isapre',
+            'domicilio': 'Domicilio',
+            'sexo': 'Sexo',
+        }
+
+        widgets = {
+            'fecha_nacimiento': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'prevision_salud': forms.Select(attrs={'class': 'form-control'}),
+            'tipo_isapre': forms.Select(attrs={'class': 'form-control'}),
+            'domicilio': forms.TextInput(attrs={'class': 'form-control'}),
+            'sexo': forms.Select(attrs={'class': 'form-control'}),
+            'usuario': forms.HiddenInput(),
+        }
+
+class CitaPacienteForm(forms.ModelForm):
+    class Meta:
+        model = Cita
+        fields = '__all__'
+
+        labels = {
+            'usuario': 'Usuario',
+            'id_medico': 'Médico',
+            'id_horario': 'Horario',
+            'acompannante': 'Acompañante',
+            'telefono': 'Teléfono',
+            'correo': 'Correo Electrónico',
+        }
+
+        widgets = {
+            'usuario': forms.HiddenInput(),
+            'id_medico': forms.Select(attrs={'class': 'form-control'}),
+            'id_horario': forms.Select(attrs={'class': 'form-control horario-select', 'placeholder': 'Select a Médico first'}),
+            'acompannante': forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control'}),
+            'correo': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['id_medico'].queryset = PersonalSalud.objects.all()
+
+        if 'id_medico' in self.data:
+            # Get the selected id_medico from the form data
+            id_medico_id = self.data['id_medico']
+            if id_medico_id:
+                # Filter the id_horario choices based on the selected id_medico
+                horarios = Horas.objects.filter(id_medico_id=id_medico_id, ocupada=False)
+                self.fields['id_horario'].queryset = horarios
+            else:
+                # If no id_medico is selected, show all available id_horarios
+                self.fields['id_horario'].queryset = Horas.objects.filter(ocupada=False)
+        else:
+            # If no form data is available, show all available id_horarios
+            self.fields['id_horario'].queryset = Horas.objects.filter(ocupada=False)
